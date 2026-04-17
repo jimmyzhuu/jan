@@ -3,6 +3,10 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     projects: ['./core', './web-app'],
+    pool: 'forks',
+    poolOptions: {
+      forks: { maxForks: 2, minForks: 1 },
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
