@@ -5,7 +5,12 @@ export default defineConfig({
     projects: ['./core', './web-app'],
     pool: 'forks',
     poolOptions: {
-      forks: { maxForks: 2, minForks: 1 },
+      forks: {
+        maxForks: 1,
+        minForks: 1,
+        isolate: true,
+        execArgv: ['--max-old-space-size=4096'],
+      },
     },
     coverage: {
       provider: 'v8',
