@@ -3,11 +3,12 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     projects: ['./core', './web-app'],
-    pool: 'vmForks',
+    pool: 'forks',
     poolOptions: {
-      vmForks: {
+      forks: {
         maxForks: 2,
         minForks: 1,
+        isolate: true,
         execArgv: ['--max-old-space-size=4096'],
       },
     },
